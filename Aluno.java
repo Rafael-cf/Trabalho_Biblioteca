@@ -17,4 +17,15 @@ class Aluno extends Usuario implements IReservouLivro
         
     }
 
+    public void adicionar(ILivroReservado consumidor)
+    {
+        consumidores.add(consumidor);
+    }
+
+    public void notificar(Reserva reserva)
+    {
+        for (ILivroReservado consumidor : ILivroReservado)
+            consumidor.notificar(reserva);
+    }
+
 }

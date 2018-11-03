@@ -1,6 +1,8 @@
 import java.util.List;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 class Bibliotecaria extends Funcionario implements IlivroReservado
 {
     private List<Emprestimo> emprestimos;
@@ -13,11 +15,12 @@ class Bibliotecaria extends Funcionario implements IlivroReservado
 
     public void CadastrarEmprestimo(Reserva reserva)
     {
-
+        emprestimos.add(new Emprestimo(reserva));
     }
 
     public void ImprimirComprovanteUltimoEmprestimo()
     {
-        
+        String mensagem = "Ultimo emprestimo: ";
+        JOptionPane.showMessageDialog(null, "");
     }
 }

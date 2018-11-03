@@ -1,3 +1,5 @@
+import javax.swing.JOptionPane;
+
 abstract class Usuario implements IAutenticacao
 {
     private String login;
@@ -23,6 +25,6 @@ abstract class Usuario implements IAutenticacao
 
     public void sair()
     {
-        
+        JOptionPane.showMessageDialog(null, "Você saiu com sucesso.", "Sair", JOptionPane.INFORMATION_MESSAGE);
     }
 }

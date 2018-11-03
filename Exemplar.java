@@ -9,6 +9,9 @@ class Exeḿplar
 
 	public Exemplar(Livro livro)
 	{
+		if (livro == null)
+			throw new NullPointerException("Livro não pode ser null");
+
 		this.livro = livro; 
 	}
 

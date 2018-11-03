@@ -1,5 +1,5 @@
 interface IAutenticacao
 {
-    public boolean Autenticar();
-    public void Sair();
+    public boolean autenticar();
+    public void sair();
 }

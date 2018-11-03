@@ -1,5 +1,5 @@
 interface IReservouLivro
 {
-	public void Adicionar(ILivroReservado consumidor);
-	public void Notificar(Reserva reserva);
+	public void adicionar(ILivroReservado consumidor);
+	public void notificar(Reserva reserva);
 }
