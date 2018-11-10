@@ -17,7 +17,9 @@ class Aluno extends Usuario implements IReservouLivro
     
     public void cadastrarReserva(List<String> titulos)
     {
-        reservas.add(new Reserva("16-10-2018", titulos));
+        Reserva novaReserva = new Reserva("16-10-2018", titulos);
+        reservas.add(novaReserva);
+        notificar(novaReserva);
     }
 
     public void adicionar(ILivroReservado consumidor)

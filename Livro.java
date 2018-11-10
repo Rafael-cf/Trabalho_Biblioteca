@@ -15,9 +15,6 @@ class Livro
 	{
 		biblioteca = criarBiblioteca();
 		criarListaExemplares(biblioteca);
-
-		for (Livro livro : biblioteca.keySet())
-			System.out.println(livro.getTitulo());
 	}
 
 	public Livro(String titulo)
