@@ -1,7 +1,8 @@
 import java.util.Map;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Arraylist;
+import java.util.ArrayList;
+import java.util.Random;
 
 class Livro
 {
@@ -13,6 +14,10 @@ class Livro
 	static
 	{
 		biblioteca = criarBiblioteca();
+		criarListaExemplares(biblioteca);
+
+		for (Livro livro : biblioteca.keySet())
+			System.out.println(livro.getTitulo());
 	}
 
 	public Livro(String titulo)
@@ -65,14 +70,21 @@ class Livro
 	{
 		Map<Livro, List<Exemplar>> biblioteca = new HashMap<Livro, List<Exemplar>>();
 
-		biblioteca.put(new Livro("Java: Como Programar", "Deitel", ""), null);
-		biblioteca.put(new Livro("Java Threads", "", ""), null);
+		biblioteca.put(new Livro("Java: Como Programar", "Paul Deitel", "Prentice Hall - Br"), null);
+		biblioteca.put(new Livro("Java Threads", "Scott Oaks, Henry Wong", "O'Reilly Media"), null);
 
 		return (biblioteca);
 	}
 
 	private static void criarListaExemplares(Map<Livro, List<Exemplar>> biblioteca)
 	{
-		for ()
+		Random aleatorio = new Random();
+
+		for (Livro livro : biblioteca.keySet())
+		{
+			int qtdeExemplares = aleatorio.nextInt(10);
+			for (int i = 0; i < qtdeExemplares; i++)
+				biblioteca.get(livro).add(new Exemplar(livro));
+		}
 	}
 }

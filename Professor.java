@@ -5,13 +5,19 @@ class Professor extends Funcionario implements ILivroReservado
         super(nome, login, senha, lotacao, cpf);
     }
 
-    public void InformarReservaAluno(Reserva reserva)
+    public void informarReservaAluno(Reserva reserva)
     {
-        
+        System.out.println("--- Evento ocorrido em Professor ---");
+        System.out.println("Data da reserva: " + reserva.getDataReserva());
+        for (Livro livro : reserva.getLivros())
+        {
+            System.out.println("Livro: " + livro.getTitulo());
+        }
+        System.out.println();
     }
 
-    public void OcorreuReserva(Reserva reserva)
+    public void ocorreuReserva(Reserva reserva)
     {
-        
+        informarReservaAluno(reserva);
     }
 }

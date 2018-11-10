@@ -3,24 +3,24 @@ import java.util.ArrayList;
 
 class Emprestimo
 {
-	private String dataEmprestimo; 
+	private String dataRetirada; 
 	private String dataDevolucao;
 	private List<Exemplar> exemplares;
 
 	public Emprestimo(Reserva reserva)
 	{
-		dataEmprestimo = reserva.getDataRetirada();
+		dataRetirada = "18-10-2018";
 		dataDevolucao = "30-10-2018";
 
-		exemplares = obterExemplares(reserva.getLivros());
+		exemplares = carregarExemplares(reserva.getLivros());
 		for (Exemplar exemplar : exemplares)
 			exemplar.setSituacao(0);
 			
 	}
 
-	public String getDataEmprestimo()
+	public String getDataRetirada()
 	{
-		return(dataEmprestimo);
+		return(dataRetirada);
 	}
 
 	public String getDataDevolucao()
@@ -28,17 +28,17 @@ class Emprestimo
 		return(dataDevolucao);
 	}
 
-	public List<Exemplares> getExemplares()
+	public List<Exemplar> getExemplares()
 	{
 		return(exemplares);
 	}
 
-	public List<Exemplares> obterExemplares(List<Livro> livros)
+	public List<Exemplar> carregarExemplares(List<Livro> livros)
 	{
-		List<Exemplar> exemplares = new ArrayList<Exemplares>();
+		List<Exemplar> exemplares = new ArrayList<Exemplar>();
 
 		for (Livro livro : livros)
-			exemplares.add(Livro.getExemplar(livro));
+			exemplares.add(Livro.obterExemplar(livro));
 
 		return (exemplares);
 	}

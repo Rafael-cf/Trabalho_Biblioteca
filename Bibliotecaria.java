@@ -1,9 +1,7 @@
 import java.util.List;
 import java.util.ArrayList;
 
-import javax.swing.JOptionPane;
-
-class Bibliotecaria extends Funcionario implements IlivroReservado
+class Bibliotecaria extends Funcionario implements ILivroReservado
 {
     private List<Emprestimo> emprestimos;
     
@@ -18,22 +16,24 @@ class Bibliotecaria extends Funcionario implements IlivroReservado
         emprestimos.add(new Emprestimo(reserva));
     }
 
-    public void imprimirComprovanteUltimoEmprestimo()
+    private void imprimirComprovanteUltimoEmprestimo()
     {
         Emprestimo ultimoEmprestimo = emprestimos.get(emprestimos.size() - 1);
 
-        String mensagem = "Último emprestimo: \n\n";
-        mensagem += "Data do empréstimo: " + ultimoEmprestimo.getDataEmprestimo() + "\n";
-        mensagem += "Data da devolução: " + ultimoEmprestimo.getDataDevolucao() + "\n\n";
+        System.out.println("--- Evento ocorrido em Bibliotecario ---");
+        System.out.println("Data Retirada: " + ultimoEmprestimo.getDataRetirada());
+        System.out.println("Data Devolução: " + ultimoEmprestimo.getDataDevolucao());
         
         for (Exemplar exemplar : ultimoEmprestimo.getExemplares())
         {
-            mensagem += "Título: " + exemplar.getLivro().getTitulo() + "\n";
-            mensagem += "Autor: " + exemplar.getLivro().getAutor() + "\n";
-            mensagem += "Editora: " + exemplar.getLivro().getEditor() + "\n\n";
+            System.out.println("Livro: " + exemplar.getLivro().getTitulo());
+            System.out.println("Autor: " + exemplar.getLivro().getAutor());
+            System.out.println("Editora: " + exemplar.getLivro().getEditora());
+            System.out.println("Cod Exemplar: " + exemplar.getCodigo());
+            System.out.println("Situação: " + exemplar.getSituacao());
         }
 
-        JOptionPane.showMessageDialog(null, mensagem);
+        System.out.println();
     }
 
     public void ocorreuReserva(Reserva reserva)

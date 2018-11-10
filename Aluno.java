@@ -1,3 +1,6 @@
+import java.util.List;
+import java.util.ArrayList;
+
 class Aluno extends Usuario implements IReservouLivro 
 {
     private int matricula;
@@ -14,7 +17,7 @@ class Aluno extends Usuario implements IReservouLivro
     
     public void cadastrarReserva(List<String> titulos)
     {
-        reservas.add(new Reserva("16-10-2018", "18-10-2018", titulos));
+        reservas.add(new Reserva("16-10-2018", titulos));
     }
 
     public void adicionar(ILivroReservado consumidor)
@@ -24,8 +27,8 @@ class Aluno extends Usuario implements IReservouLivro
 
     public void notificar(Reserva reserva)
     {
-        for (ILivroReservado consumidor : ILivroReservado)
-            consumidor.notificar(reserva);
+        for (ILivroReservado consumidor : consumidores)
+            consumidor.ocorreuReserva(reserva);
     }
 
 }
