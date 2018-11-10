@@ -13,14 +13,32 @@ class Bibliotecaria extends Funcionario implements IlivroReservado
         emprestimos = new ArrayList<Emprestimo>();
     }
 
-    public void CadastrarEmprestimo(Reserva reserva)
+    public void cadastrarEmprestimo(Reserva reserva)
     {
         emprestimos.add(new Emprestimo(reserva));
     }
 
-    public void ImprimirComprovanteUltimoEmprestimo()
+    public void imprimirComprovanteUltimoEmprestimo()
     {
-        String mensagem = "Ultimo emprestimo: ";
-        JOptionPane.showMessageDialog(null, "");
+        Emprestimo ultimoEmprestimo = emprestimos.get(emprestimos.size() - 1);
+
+        String mensagem = "Último emprestimo: \n\n";
+        mensagem += "Data do empréstimo: " + ultimoEmprestimo.getDataEmprestimo() + "\n";
+        mensagem += "Data da devolução: " + ultimoEmprestimo.getDataDevolucao() + "\n\n";
+        
+        for (Exemplar exemplar : ultimoEmprestimo.getExemplares())
+        {
+            mensagem += "Título: " + exemplar.getLivro().getTitulo() + "\n";
+            mensagem += "Autor: " + exemplar.getLivro().getAutor() + "\n";
+            mensagem += "Editora: " + exemplar.getLivro().getEditor() + "\n\n";
+        }
+
+        JOptionPane.showMessageDialog(null, mensagem);
+    }
+
+    public void ocorreuReserva(Reserva reserva)
+    {
+        cadastrarEmprestimo(reserva);
+        imprimirComprovanteUltimoEmprestimo();
     }
 }

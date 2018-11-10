@@ -1,23 +1,29 @@
-import Java.util.Date;
+import java.util.List;
+import java.util.ArrayList;
 
 class Emprestimo
 {
-	private Date dataEmprestimo; 
-	private Date dataDevolucao;
+	private String dataEmprestimo; 
+	private String dataDevolucao;
 	private List<Exemplar> exemplares;
 
 	public Emprestimo(Reserva reserva)
 	{
-		this.reserva = reserva;
-		exemplares = new ArrayList<Exemplares>();
+		dataEmprestimo = reserva.getDataRetirada();
+		dataDevolucao = "30-10-2018";
+
+		exemplares = obterExemplares(reserva.getLivros());
+		for (Exemplar exemplar : exemplares)
+			exemplar.setSituacao(0);
+			
 	}
 
-	public Date getDataEmprestimo()
+	public String getDataEmprestimo()
 	{
 		return(dataEmprestimo);
 	}
 
-	public Date getDataDevolucao()
+	public String getDataDevolucao()
 	{
 		return(dataDevolucao);
 	}
@@ -27,8 +33,13 @@ class Emprestimo
 		return(exemplares);
 	}
 
-	public List<Exemplares> obterExemplares()
+	public List<Exemplares> obterExemplares(List<Livro> livros)
 	{
-		return(exemplares);
+		List<Exemplar> exemplares = new ArrayList<Exemplares>();
+
+		for (Livro livro : livros)
+			exemplares.add(Livro.getExemplar(livro));
+
+		return (exemplares);
 	}
 } 

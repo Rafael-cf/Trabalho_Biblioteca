@@ -1,6 +1,6 @@
 import java.util.Date;
 
-class Exeḿplar
+class Exemplar
 {
 	private int codigo;
 	private Date dataAquisicao;

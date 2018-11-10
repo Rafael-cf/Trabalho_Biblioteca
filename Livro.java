@@ -10,6 +10,11 @@ class Livro
 	private String editora;
 	private static Map<Livro, List<Exemplar>> biblioteca;
 
+	static
+	{
+		biblioteca = criarBiblioteca();
+	}
+
 	public Livro(String titulo)
 	{
 		this.titulo = titulo;
@@ -40,21 +45,34 @@ class Livro
 
 	public static Livro obterLivro(String titulo)
 	{
-		return();
+		for (Livro livro : biblioteca.keySet())
+			if (livro.getTitulo().equals(titulo))
+				return (livro);
+
+		return (null);
 	}
 
-	public static Exemplar obterLivro(Livro livro)
+	public static Exemplar obterExemplar(Livro livro)
 	{
-		return();
+		for (Exemplar exemplar : biblioteca.get(livro))
+			if (exemplar.getSituacao() == 1)
+				return (exemplar);
+
+		return (null);
 	}
 
 	private static Map<Livro, List<Exemplar>> criarBiblioteca()
 	{
-		return();
+		Map<Livro, List<Exemplar>> biblioteca = new HashMap<Livro, List<Exemplar>>();
+
+		biblioteca.put(new Livro("Java: Como Programar", "Deitel", ""), null);
+		biblioteca.put(new Livro("Java Threads", "", ""), null);
+
+		return (biblioteca);
 	}
 
-	private static void criarBiblioteca(Map<Livro, List<Exemplar>> biblioteca)
+	private static void criarListaExemplares(Map<Livro, List<Exemplar>> biblioteca)
 	{
-		
+		for ()
 	}
 }
