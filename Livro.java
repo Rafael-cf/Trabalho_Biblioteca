@@ -70,8 +70,8 @@ class Livro
 	{
 		Map<Livro, List<Exemplar>> biblioteca = new HashMap<Livro, List<Exemplar>>();
 
-		biblioteca.put(new Livro("Java: Como Programar", "Paul Deitel", "Prentice Hall - Br"), null);
-		biblioteca.put(new Livro("Java Threads", "Scott Oaks, Henry Wong", "O'Reilly Media"), null);
+		biblioteca.put(new Livro("Java: Como Programar", "Paul Deitel", "Prentice Hall - Br"), new ArrayList<Exemplar>());
+		biblioteca.put(new Livro("Java Threads", "Scott Oaks, Henry Wong", "O'Reilly Media"), new ArrayList<Exemplar>());
 
 		return (biblioteca);
 	}
