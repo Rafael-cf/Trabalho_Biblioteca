@@ -27,10 +27,15 @@ class Aluno extends Usuario implements IReservouLivro
         consumidores.add(consumidor);
     }
 
+    public void remover(ILivroReservado consumidor)
+    {
+        consumidores.remove(consumidor);
+    }
+
     public void notificar(Reserva reserva)
     {
         for (ILivroReservado consumidor : consumidores)
-            consumidor.ocorreuReserva(reserva);
+            consumidor.ocorreuReserva(reserva, this);
     }
 
 }

@@ -1,4 +1,4 @@
 interface ILivroReservado
 {
-    public void ocorreuReserva(Reserva reserva);
+    public void ocorreuReserva(Reserva reserva, Aluno aluno);
 }

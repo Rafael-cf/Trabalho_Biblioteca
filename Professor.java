@@ -16,7 +16,7 @@ class Professor extends Funcionario implements ILivroReservado
         System.out.println();
     }
 
-    public void ocorreuReserva(Reserva reserva)
+    public void ocorreuReserva(Reserva reserva, Aluno aluno)
     {
         informarReservaAluno(reserva);
     }

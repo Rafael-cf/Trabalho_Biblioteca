@@ -23,11 +23,12 @@ class Bibliotecario extends Funcionario implements ILivroReservado
         }
     }
 
-    private void imprimirComprovanteUltimoEmprestimo()
+    private void imprimirComprovanteUltimoEmprestimo(Aluno aluno)
     {
         Emprestimo ultimoEmprestimo = emprestimos.get(emprestimos.size() - 1);
 
         System.out.println("--- Evento ocorrido em Bibliotecario ---");
+        System.out.println("Aluno: " + aluno.getNome());
         System.out.println("Data Retirada: " + ultimoEmprestimo.getDataRetirada());
         System.out.println("Data Devolução: " + ultimoEmprestimo.getDataDevolucao());
         
@@ -43,9 +44,9 @@ class Bibliotecario extends Funcionario implements ILivroReservado
         System.out.println();
     }
 
-    public void ocorreuReserva(Reserva reserva)
+    public void ocorreuReserva(Reserva reserva, Aluno aluno)
     {
         cadastrarEmprestimo(reserva);
-        imprimirComprovanteUltimoEmprestimo();
+        imprimirComprovanteUltimoEmprestimo(aluno);
     }
 }
