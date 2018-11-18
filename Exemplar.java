@@ -8,10 +8,10 @@ class Exemplar
 	private int situacao;
 	private Livro livro;
 
-	public Exemplar(Livro livro)
+	public Exemplar(Livro livro) throws Exception
 	{
 		if (livro == null)
-			throw new NullPointerException("Livro não pode ser null");
+			throw new Exception("Livro não pode ser null");
 
 		Random aleatorio = new Random();
 

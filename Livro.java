@@ -13,8 +13,16 @@ class Livro
 
 	static
 	{
-		biblioteca = criarBiblioteca();
-		criarListaExemplares(biblioteca);
+		try
+		{
+			biblioteca = criarBiblioteca();
+			criarListaExemplares(biblioteca);
+		}
+		catch (Exception e)
+		{
+			System.out.println(e);
+		}
+		
 	}
 
 	public Livro(String titulo)
@@ -73,13 +81,13 @@ class Livro
 		return (biblioteca);
 	}
 
-	private static void criarListaExemplares(Map<Livro, List<Exemplar>> biblioteca)
+	private static void criarListaExemplares(Map<Livro, List<Exemplar>> biblioteca) throws Exception
 	{
 		Random aleatorio = new Random();
 
 		for (Livro livro : biblioteca.keySet())
 		{
-			int qtdeExemplares = aleatorio.nextInt(10);
+			int qtdeExemplares = aleatorio.nextInt(10) + 1;
 			for (int i = 0; i < qtdeExemplares; i++)
 				biblioteca.get(livro).add(new Exemplar(livro));
 		}

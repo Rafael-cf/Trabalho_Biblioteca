@@ -7,12 +7,16 @@ class Emprestimo
 	private String dataDevolucao;
 	private List<Exemplar> exemplares;
 
-	public Emprestimo(Reserva reserva)
+	public Emprestimo(Reserva reserva) throws Exception
 	{
 		dataRetirada = "18-10-2018";
 		dataDevolucao = "30-10-2018";
 
 		exemplares = carregarExemplares(reserva.getLivros());
+
+		if (exemplares == null || exemplares.isEmpty())
+			throw new Exception("É necessário haver pelo menos 1 exemplar no empréstimo.");
+
 		for (Exemplar exemplar : exemplares)
 			exemplar.setSituacao(0);
 			

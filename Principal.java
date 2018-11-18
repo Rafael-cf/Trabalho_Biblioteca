@@ -5,17 +5,17 @@ import java.util.List;
 // // segregado nas seguintes estruturas de diretórios: divisao, biblioteca e acesso.
 // import divisao.Setor;
 // import biblioteca.Aluno;
-// import biblioteca.Bibliotecaria;
+// import biblioteca.Bibliotecario;
 // import biblioteca.Professor;
 // import acesso.Usuario;
 
 
 public class Principal
 {
-	public static void main(String[] args)
+	public static void main(String[] args) throws Exception
 	{
 		Aluno aluno = new Aluno("Roberto Santos", "rsantos", "123456", 00154);
-		Bibliotecaria bibliotecaria = new Bibliotecaria("Joana Silva", "jsilva", "654321", "09945789632", new Setor("Biblioteca"));
+		Bibliotecario bibliotecaria = new Bibliotecario("Joana Silva", "jsilva", "654321", "09945789632", new Setor("Biblioteca"));
 		Professor professor = new Professor("José Maria Santos", "jmsantos", "132465", "08632176245", new Setor("Departamento de Informática"));
 		
 		aluno.adicionar(bibliotecaria);

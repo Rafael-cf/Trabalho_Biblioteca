@@ -23,6 +23,6 @@ abstract class Usuario implements IAutenticacao
 
     public void sair()
     {
-        System.out.println(nome + " saiu com sucesso.");
+        System.out.println(this.getClass().getName() + " saiu com sucesso.");
     }
 }

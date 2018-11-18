@@ -15,7 +15,7 @@ class Aluno extends Usuario implements IReservouLivro
         consumidores = new ArrayList<ILivroReservado>();
     }
     
-    public void cadastrarReserva(List<String> titulos)
+    public void cadastrarReserva(List<String> titulos) throws Exception
     {
         Reserva novaReserva = new Reserva("16-10-2018", titulos);
         reservas.add(novaReserva);

@@ -1,11 +1,11 @@
 import java.util.List;
 import java.util.ArrayList;
 
-class Bibliotecaria extends Funcionario implements ILivroReservado
+class Bibliotecario extends Funcionario implements ILivroReservado
 {
     private List<Emprestimo> emprestimos;
     
-    public Bibliotecaria(String nome, String login, String senha, String cpf, Setor lotacao)
+    public Bibliotecario(String nome, String login, String senha, String cpf, Setor lotacao)
     {
         super(nome, login, senha, lotacao, cpf);
         emprestimos = new ArrayList<Emprestimo>();
@@ -13,7 +13,14 @@ class Bibliotecaria extends Funcionario implements ILivroReservado
 
     public void cadastrarEmprestimo(Reserva reserva)
     {
-        emprestimos.add(new Emprestimo(reserva));
+        try
+        {
+            emprestimos.add(new Emprestimo(reserva));
+        }
+        catch (Exception e)
+        {
+            System.out.println(e);
+        }
     }
 
     private void imprimirComprovanteUltimoEmprestimo()
